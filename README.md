@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Distributed Search Engine
 
@@ -330,4 +331,64 @@ The emphasis is on genuine distributed execution, reliable data management, vers
 **Project Category:** Big Data and Distributed Systems  
 **Architecture:** Four-Node Distributed Search Engine  
 **Repository Status:** Initial Setup
+=======
+# ByteForce: Distributed Search Engine
+
+**Course:** Big Data 2026 (UE24CS343AB2)  
+**Team Members:**
+- **Apoorva (Lead Integration & Infrastructure Developer)** — VM2 (`10.194.92.212`, `user`)
+- **Lakshya (Distributed Compute Developer)** — VM3 (`10.194.92.196`, `pes2ug24cs250`)
+- **Medha (Ingestion & Data Quality)** — VM1 (`10.194.92.188`, `pes2ug24cs274`)
+- **Naivadh (Search Service & Frontend)** — VM4 (`10.194.92.171`, `pes2ug24cs297`)
+
+---
+
+## Architecture Overview
+
+ByteForce is a four-node distributed search engine implementing an end-to-end lakehouse and retrieval pipeline:
+1. **VM1 (Ingestion):** Holds raw corpus, uploads to HDFS, and submits client Spark ingestion jobs. Runs zero cluster daemons.
+2. **VM2 (Storage & Admin):** Runs HDFS NameNode and DataNode (replication = 2), Spark Worker, and manages Apache Iceberg lakehouse tables.
+3. **VM3 (Compute):** Runs Spark Master and Spark Worker, HDFS DataNode, and hosts Spark compute drivers for Inverted Indexing, PageRank, and Parquet Export.
+4. **VM4 (Search):** Decoupled online serving node. Hosts FastAPI and Search UI, pulling validated Parquet exports into versioned directories (`/serving/v0/`, `/serving/v1/`) and evaluating hybrid BM25 + PageRank scores in memory.
+
+---
+
+## Technical Documentation
+
+Detailed architectural and operational documentation is located in the `docs/` directory:
+- [docs/PROJECT_BLUEPRINT.md](file:///Users/apoorva_kogta/Documents/BD_Proj/docs/PROJECT_BLUEPRINT.md) — Executive summary, technical stack, information retrieval mathematics, and rubric mapping.
+- [docs/CLUSTER_ARCHITECTURE.md](file:///Users/apoorva_kogta/Documents/BD_Proj/docs/CLUSTER_ARCHITECTURE.md) — Node roles, ZeroTier network matrix, HDFS replication, Spark cluster sizing, and inter-node security.
+- [docs/DATASET_ANALYSIS.md](file:///Users/apoorva_kogta/Documents/BD_Proj/docs/DATASET_ANALYSIS.md) — Deep schema analysis of Phase 0 (`pages.jsonl`) and Phase 1 (`changes.json`), corruption discovery, deduplication rules, and link graph pruning.
+- [docs/INFRASTRUCTURE_CHECKLIST.md](file:///Users/apoorva_kogta/Documents/BD_Proj/docs/INFRASTRUCTURE_CHECKLIST.md) — Node audit commands, pre-flight checks, software prerequisites, and configuration templates.
+- [docs/IMPLEMENTATION_ROADMAP.md](file:///Users/apoorva_kogta/Documents/BD_Proj/docs/IMPLEMENTATION_ROADMAP.md) — Step-by-step milestone timeline, deliverables, and rubric traceability matrix.
+
+---
+
+## Repository Structure
+
+```
+├── Dataset/                     # Input datasets
+│   ├── phase-0/pages.jsonl      # Base Wikipedia corpus (~1,000 pages)
+│   └── phase-1/changes.json     # Change set (50 DELETEs, 50 UPSERTs)
+├── docs/                        # Formal architectural blueprints and runbooks
+├── config/                      # Cluster daemon configuration templates
+│   ├── hadoop/                  # core-site.xml, hdfs-site.xml, workers
+│   └── spark/                   # spark-env.sh, spark-defaults.conf, workers
+├── deploy/                      # Infrastructure automation
+│   ├── ansible/                 # Ansible inventory, playbooks, and roles
+│   └── scripts/                 # Network and service management scripts
+├── src/                         # Source code modules
+│   ├── ingestion/               # Validation, parsing, and HDFS ingestion
+│   ├── lakehouse/               # Iceberg catalog and table schema managers
+│   ├── indexing/                # Tokenization and distributed inverted index
+│   ├── pagerank/                # Spark PageRank implementation (d=0.85, 10 iters)
+│   ├── export/                  # Parquet export and checksum verification
+│   └── search/                  # FastAPI service, BM25 ranker, and Web UI
+├── scripts/                     # End-to-end execution and evaluation scripts
+│   ├── run_phase0.sh
+│   ├── run_phase1.sh
+│   ├── test_idempotency.sh
+│   └── test_fault_tolerance.sh
+└── tests/                       # Unit and integration test suites
+>>>>>>> 6ae6c62 (feat(docs): initialize architecture blueprints, dataset analysis, and repository structure)
 ```

@@ -179,3 +179,4 @@ To enable automated Ansible provisioning, HDFS cluster startup, and secure Parqu
    - Passwordless SSH configured between VM2 and VM3 for Hadoop `start-dfs.sh` and Spark `start-workers.sh`.
 3. **Parquet Synchronization (VM4 from VM3):**
    - VM4 has read access via SSH/rsync to pull export artifacts from VM3.
+

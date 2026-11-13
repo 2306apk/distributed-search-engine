@@ -226,3 +226,4 @@ VM4 maintains isolated serving directories on local storage:
 2. **Spark Compute Fault Tolerance:** Spark RDD lineage graphs and shuffle spill mechanisms allow recomputation of lost partitions if a worker process crashes during indexing or PageRank.
 3. **Decoupled Search Engine:** Because VM4 serves queries from local memory-mapped Parquet files, complete network failure of HDFS or Spark cluster does not impair live search operations.
 4. **Idempotency Guarantee:** Ingesting Phase 0 or Phase 1 multiple times is safe because Iceberg's ACID `MERGE INTO` operation relies on deterministic primary keys (`doc_id`), ensuring subsequent runs produce zero duplicate rows.
+

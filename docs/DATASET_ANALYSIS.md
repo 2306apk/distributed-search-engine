@@ -167,3 +167,4 @@ To satisfy the academic rubric ("Idempotency Test — 2 Marks: Ingesting the sam
    - Ingesting `changes.json` applies 50 DELETEs and 50 UPSERTs, leaving 975 active records.
    - Re-running the Phase 1 ingestion job re-evaluates the same operations against the table.
    - Deleted documents remain marked deleted or absent; updated documents receive identical updates. Total active document count remains exactly 975.
+

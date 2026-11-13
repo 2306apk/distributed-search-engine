@@ -168,3 +168,4 @@
 | **3. Search Verification** | 3 M | FastAPI BM25 + PageRank retrieval engine, Web UI | Query: `"calendar"` (Doc 1 deleted in Phase 1)<br>Query: `"beard"` (Doc 94 updated in Phase 1) |
 | **4. Idempotency Test** | 2 M | Iceberg snapshot inspection & primary key deduplication | `bash scripts/test_idempotency.sh`<br>Verify row counts and snapshots remain identical. |
 | **5. Individual Viva** | 6 M | Technical architecture documentation & viva flashcards | Defense of distributed design decisions, stage boundaries, and formula derivations. |
+

@@ -225,3 +225,4 @@ curl -s http://10.194.92.196:8080 | grep "Alive Workers"
 curl -s http://10.194.92.171:8000/health
 # Expected: {"status": "ok", "active_version": "v0", "document_count": 1000}
 ```
+

@@ -1,0 +1,24 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+logs/
+serving/v0/*.json
+serving/v0/*.parquet
+serving/v1/*.json
+serving/v1/*.parquet
+!serving/v0/manifest.json
+!serving/v1/manifest.json
+
+
+# ByteForce internal deployment and infrastructure
+/deployment/
+/deploy/ansible/inventory/
+
+# Local serving exports and generated bundles
+/serving/
+
+# Local Python environments
+.venv/
+__pycache__/
+*.py[cod]

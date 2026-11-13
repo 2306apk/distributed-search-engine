@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-11-13T16:42:17.180472+00:00",
+  "phase0_corpus_file": "/home/user/byteforce/data/processed/phase-0-pages.jsonl",
+  "changes_file": "/home/user/byteforce/Dataset/phase-1/changes.json",
+  "output_processed_file": "/home/user/byteforce/data/processed/phase-1-pages.jsonl",
+  "output_quarantine_file": "/home/user/byteforce/data/quarantine/phase-1-quarantine.jsonl",
+  "initial_phase0_documents": 1000,
+  "total_change_records": 100,
+  "valid_change_records": 100,
+  "quarantined_records": 0,
+  "rejected_records": 0,
+  "delete_operations_processed": 50,
+  "upsert_operations_processed": 50,
+  "documents_updated": 25,
+  "documents_inserted": 25,
+  "unchanged_phase0_documents": 925,
+  "final_active_documents": 975,
+  "total_links_before_pruning": 474,
+  "total_links_after_pruning": 467,
+  "dangling_links_pruned": 7,
+  "pruned_dangling_targets": [
+    "14",
+    "28",
+    "43",
+    "52",
+    "62",
+    "76",
+    "93"
+  ],
+  "quarantined_line_numbers": [],
+  "rejected_line_numbers": []
+}
